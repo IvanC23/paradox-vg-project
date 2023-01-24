@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
             UpdateGameState(PreviousGameState);
             Time.timeScale = 1f;
         }
-        else if (State == GameState.YoungPlayerTurn || State == GameState.OldPlayerTurn || State == GameState.SecondPart || State == GameState.ThirdPart)
+        else if ((State == GameState.StartingYoungTurn||State == GameState.YoungPlayerTurn|| State == GameState.StartingOldTurn|| State == GameState.OldPlayerTurn || State == GameState.SecondPart || State == GameState.ThirdPart)&&!PostProcessingManager.Instance.isProcessing)
         {
             UpdateGameState(GameState.PauseMenu);
             Time.timeScale = 0f;

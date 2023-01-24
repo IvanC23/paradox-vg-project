@@ -49,7 +49,7 @@ public class InputManager : MonoBehaviour
         _actions.OldPlayer.Restart.performed += AnyActionPerformed;
         _actions.OldPlayer.Interact.performed += AnyActionPerformed;
         _actions.OldPlayer.Dash.performed += AnyActionPerformed;
-        _actions.UI.Pause.performed += AnyActionPerformed;
+        //_actions.UI.Pause.performed += AnyActionPerformed;
 
     }
     
@@ -65,7 +65,7 @@ public class InputManager : MonoBehaviour
         _actions.OldPlayer.Restart.performed -= AnyActionPerformed;
         _actions.OldPlayer.Interact.performed -= AnyActionPerformed;
         _actions.OldPlayer.Dash.performed -= AnyActionPerformed;
-        _actions.UI.Pause.performed -= AnyActionPerformed;
+        //_actions.UI.Pause.performed -= AnyActionPerformed;
         
     }
     
