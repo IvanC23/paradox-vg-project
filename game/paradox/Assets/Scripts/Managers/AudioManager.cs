@@ -21,6 +21,8 @@ public class AudioManager : MonoBehaviour
     private bool _isUsingJetpack;
     private bool _wasUsingJetpack;
     private ThemeMusic _currentThemeMusic;
+
+    private bool _isUsingKeyboard=true;
     
     private void Awake()
     {
@@ -261,6 +263,17 @@ public class AudioManager : MonoBehaviour
         Stop("ThemeLab1");
         Stop("ThemeLab2");
         Stop("ThemeLab3");
+    }
+
+    public void SetIsUsingKeyboard(bool i)
+    {
+        _isUsingKeyboard = i;
+        
+    }
+
+    public bool GetIsUsingKeyboard()
+    {
+        return _isUsingKeyboard;
     }
 }
 
