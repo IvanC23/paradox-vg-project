@@ -14,14 +14,16 @@ public class AudioManager : MonoBehaviour
     private float _masterSlider = 1f;
     private float _effectSlider = 1f;
     private float _themeSlider = 1f;
+    
     private int _resolutionDropdownIndex = 2;
     private bool _isFullScreen = true;
+    private bool _colorBlindMode = false;
 
     public static AudioManager instance;
     private bool _isUsingJetpack;
     private bool _wasUsingJetpack;
     private ThemeMusic _currentThemeMusic;
-
+    
     private bool _isUsingKeyboard=true;
     
     private void Awake()
@@ -269,6 +271,17 @@ public class AudioManager : MonoBehaviour
     {
         _isUsingKeyboard = i;
         
+    }
+
+    public void SetColorBindMode(bool newColorBlindMode)
+    {
+        _colorBlindMode = newColorBlindMode;
+        Debug.Log("Color Blind Mode is On" + _colorBlindMode);
+    }
+
+    public bool GetColorBlindMode()
+    {
+        return _colorBlindMode;
     }
 
     public bool GetIsUsingKeyboard()
