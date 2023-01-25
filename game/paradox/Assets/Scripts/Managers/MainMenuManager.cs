@@ -22,6 +22,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject soundsButton;
     public GameObject resolutionButton;
     public GameObject galleryButton;
+    public GameObject newGameButton;
 
     private bool _isWaiting;
     private void Start()
@@ -35,10 +36,12 @@ public class MainMenuManager : MonoBehaviour
         if (LevelManager.Instance.GetFirstTimePlay())
         {
             galleryButton.GetComponent<Button>().interactable = false;
+            newGameButton.GetComponent<Button>().interactable = false;
         }
         else
         {
             galleryButton.GetComponent<Button>().interactable = true;
+            newGameButton.GetComponent<Button>().interactable = true;
         }
     }
 
@@ -143,6 +146,10 @@ public class MainMenuManager : MonoBehaviour
             _isWaiting = true;
             LevelManager.Instance.GoToStoryBoard();
         }
+    }
+
+    public void NewGame(){
+        LevelManager.Instance.NewGame();
     }
 
     public void QuitGame()

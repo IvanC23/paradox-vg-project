@@ -33,5 +33,12 @@ public static class SaveSystem
         }
 
     }
+
+    public static void DestroyData(){
+        string path = Application.persistentDataPath + "/game.data";
+        if(File.Exists(path)){
+            File.Delete(path);
+        }
+    }
  
 }
