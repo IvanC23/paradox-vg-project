@@ -314,9 +314,14 @@ public class LaserTurretController : MonoBehaviour
         {
             if (col.gameObject.CompareTag("Young"))
             {
-                GameManager.Instance.UpdateGameState(GameState.StartingYoungTurn);
+                col.gameObject.GetComponent<CharacterController2D>().SetShocked();
             }
-            else if (col.gameObject.CompareTag("Old") || col.gameObject.CompareTag("Ghost"))
+            else if (col.gameObject.CompareTag("Old"))
+            {
+                col.gameObject.GetComponent<OldController2D>().SetShocked();
+
+            }
+            else if ( col.gameObject.CompareTag("Ghost"))
             {
                 GameManager.Instance.UpdateGameState(GameState.Paradox);
             }

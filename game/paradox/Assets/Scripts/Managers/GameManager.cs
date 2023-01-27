@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
 
     private bool _isTutorial;
+    private bool _isLoaded;
 
 
     private void Awake()
@@ -37,6 +38,13 @@ public class GameManager : MonoBehaviour
      */
     public void UpdateGameState(GameState newState)
     {
+        if (!_isLoaded&&newState!=GameState.StartingYoungTurn)
+        {
+            return;
+        }
+
+        _isLoaded = true;
+        
         if (State == GameState.LevelCompleted)
         {
             if (newState!=GameState.StatisticsMenu)
@@ -203,7 +211,7 @@ public class GameManager : MonoBehaviour
 
 public enum GameState
 {
-
+    
     StartingYoungTurn,
     YoungPlayerTurn,
 
