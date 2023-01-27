@@ -455,13 +455,14 @@ GameObject:
   m_Component:
   - component: {fileID: 207809019651219393}
   - component: {fileID: 3932553207872014318}
+  - component: {fileID: 7181588031129193532}
   m_Layer: 0
   m_Name: AccessibilityIcon
   m_TagString: Accessibility
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &207809019651219393
 Transform:
   m_ObjectHideFlags: 0
@@ -484,7 +485,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8890119815252143925}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -529,3 +530,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7181588031129193532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8890119815252143925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1273a9c90de546542aed8bb58be16aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
