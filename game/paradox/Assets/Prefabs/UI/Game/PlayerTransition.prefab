@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7871556540511652807, guid: c39add88c03354be7af0d5340f2ef6c3, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: -3888481672020999207, guid: c39add88c03354be7af0d5340f2ef6c3, type: 3}
       propertyPath: m_Name
@@ -197,6 +197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6483224854343524278}
     m_Modifications:
+    - target: {fileID: -7871556540511652807, guid: 1a20ed59fe83f4ad48151dca6d35e29f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: -3888481672020999207, guid: 1a20ed59fe83f4ad48151dca6d35e29f, type: 3}
       propertyPath: m_Name
       value: TransitionScreen
@@ -277,7 +281,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7871556540511652807, guid: 1c310ba9090bb46869cbb94de1ed0523, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -3888481672020999207, guid: 1c310ba9090bb46869cbb94de1ed0523, type: 3}
       propertyPath: m_Name
