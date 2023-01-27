@@ -2175,10 +2175,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTransition
       objectReference: {fileID: 0}
-    - target: {fileID: 4171307486725312153, guid: cc396c8c3ba6247c7bb3fe0750299233, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5308926444542599441, guid: cc396c8c3ba6247c7bb3fe0750299233, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2245,11 +2241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5308926444542599441, guid: cc396c8c3ba6247c7bb3fe0750299233, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5308926444542599441, guid: cc396c8c3ba6247c7bb3fe0750299233, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5308926444542599441, guid: cc396c8c3ba6247c7bb3fe0750299233, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
