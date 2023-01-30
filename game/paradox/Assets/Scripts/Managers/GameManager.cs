@@ -44,7 +44,20 @@ public class GameManager : MonoBehaviour
         }
 
         _isLoaded = true;
-        
+        if (State == GameState.Paradox)
+        {
+            if (newState!=GameState.StartingOldTurn)
+            {
+                return;
+            }
+        }
+        if (State == GameState.StartingOldTurn)
+        {
+            if (newState==GameState.Paradox)
+            {
+                return;
+            }
+        }
         if (State == GameState.LevelCompleted)
         {
             if (newState!=GameState.StatisticsMenu)

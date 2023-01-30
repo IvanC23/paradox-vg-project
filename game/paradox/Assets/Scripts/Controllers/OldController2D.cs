@@ -72,9 +72,12 @@ public class OldController2D : MonoBehaviour
 
     //---------------------------------
     private bool _isShocked;
+    private static readonly int Paradox = Animator.StringToHash("Paradox");
 
     private void Awake()
     {
+        GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
+
         _isShocked = false;
         _canUseJetpackBoost = true;
         _animator = gameObject.GetComponent<Animator>();
@@ -87,13 +90,20 @@ public class OldController2D : MonoBehaviour
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
     }
-
-    /*
-    private void FixedUpdate()
+    
+    private void OnDestroy()
     {
-        
+        //It is unsubscribing to the event
+        GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
     }
-    */
+ 
+    private void GameManagerOnGameStateChanged(GameState state)
+    {
+        if (state == GameState.Paradox ) 
+        { 
+            _animator.SetBool(Paradox, true);
+        }
+    }
 
     public void Move(float move, bool crouch, bool jump, bool dash)
     {
@@ -343,9 +353,16 @@ public class OldController2D : MonoBehaviour
         if (!_isShocked)
         {
             _isShocked = true;
+            m_Rigidbody2D.velocity = Vector2.zero;
+            m_Rigidbody2D.isKinematic = true;
             _animator.SetBool(IsHittingLaser, true);
-            GameManager.Instance.UpdateGameState(GameState.Paradox);
+            StartCoroutine("WaitToShockAnimation");
         }
+    }
+    IEnumerator WaitToShockAnimation()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        GameManager.Instance.UpdateGameState(GameState.Paradox);
     }
 
     private void Flip()
