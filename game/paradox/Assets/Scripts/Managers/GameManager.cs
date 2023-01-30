@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
                     Time.timeScale = 1f;
                     break;
                 case GameState.StartingSecondPart:
-                    if (PreviousGameState != GameState.YoungPlayerTurn)
+                    if (PreviousGameState != GameState.ThirdPart)
                     {
                         UpdateGameState(GameState.SecondPart);
                     }
@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
             UpdateGameState(PreviousGameState);
             Time.timeScale = 1f;
         }
-        else if ((State == GameState.StartingYoungTurn||State == GameState.YoungPlayerTurn|| State == GameState.StartingOldTurn|| State == GameState.OldPlayerTurn || State == GameState.SecondPart || State == GameState.ThirdPart)&&!PostProcessingManager.Instance.isProcessing)
+        else if ((State == GameState.StartingYoungTurn||State == GameState.YoungPlayerTurn|| State == GameState.StartingOldTurn|| State == GameState.OldPlayerTurn || State == GameState.SecondPart || State == GameState.ThirdPart)&&!PlayerTransitionManager.Instance.isProcessing)
         {
             UpdateGameState(GameState.PauseMenu);
             Time.timeScale = 0f;

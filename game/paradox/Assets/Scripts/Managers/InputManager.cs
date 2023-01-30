@@ -82,7 +82,7 @@ public class InputManager : MonoBehaviour
             
         }
 
-        if (GameManager.Instance.State == GameState.StartingOldTurn && !PostProcessingManager.Instance.isProcessing)
+        if (GameManager.Instance.State == GameState.StartingOldTurn && !PlayerTransitionManager.Instance.isProcessing)
         {
             Time.timeScale = 0f;
             if (_isActionPerfomed)

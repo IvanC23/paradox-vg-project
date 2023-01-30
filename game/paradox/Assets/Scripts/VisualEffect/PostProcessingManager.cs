@@ -30,6 +30,7 @@ public class PostProcessingManager : MonoBehaviour
     }
     private void GameManagerOnGameStateChanged(GameState state)
     {
+        /*
         if (GameManager.Instance.IsTutorial())
         {
             if (state == GameState.StartingSecondPart && GameManager.Instance.PreviousGameState == GameState.YoungPlayerTurn)
@@ -46,6 +47,7 @@ public class PostProcessingManager : MonoBehaviour
             }
 
         }
+        */
 
         if (state == GameState.Paradox)
         {
