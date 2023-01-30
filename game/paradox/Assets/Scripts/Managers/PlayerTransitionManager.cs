@@ -46,7 +46,7 @@ public class PlayerTransitionManager : MonoBehaviour
         isProcessing = true;
         Time.timeScale = 0;
         _playerTransition.SetActive(true);
-        yield return new WaitForSecondsRealtime(3.6f);
+        yield return new WaitForSecondsRealtime(2.4f);
         _playerTransition.SetActive(false);
         isProcessing = false;
         //Time.timeScale = 1;
