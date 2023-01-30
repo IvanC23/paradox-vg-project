@@ -24,6 +24,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject galleryButton;
     public GameObject newGameButton;
     public GameObject popUpMenu;
+    public GameObject popUpBack;
 
     private bool _isWaiting;
     private void Start()
@@ -162,13 +163,23 @@ public class MainMenuManager : MonoBehaviour
 
     public void PopUpMenu()
     {
-        mainMenu.SetActive(false);
+        //Clear
+        EventSystem.current.SetSelectedGameObject(null);
+        //Reassign
+        EventSystem.current.SetSelectedGameObject(popUpBack);
+
+        optionsMenu.SetActive(false);
         popUpMenu.SetActive(true);
     }
 
     public void TogglePopUp()
     {
-        mainMenu.SetActive(true);
+        //Clear
+        EventSystem.current.SetSelectedGameObject(null);
+        //Reassign
+        EventSystem.current.SetSelectedGameObject(optionsButton);
+
+        optionsMenu.SetActive(true);
         popUpMenu.SetActive(false);
     }
 

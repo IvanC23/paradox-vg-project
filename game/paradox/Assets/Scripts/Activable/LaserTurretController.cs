@@ -50,7 +50,13 @@ public class LaserTurretController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private float _fpsCount=0;
     private float _spriteSpeed=0.1f;
-    
+
+    private bool _isFirstHitYoung = true;
+    private bool _isFirstHitOld = true;
+    private Vector3 _initHitPointYoung;
+    private Vector3 _initHitPointOld;
+
+    private RaycastHit2D _raycastHit2D;
     //-------------------------------
     private void Awake()
     {
@@ -102,6 +108,8 @@ public class LaserTurretController : MonoBehaviour
     private void InitYoung()
     {
         _laserPosition = _initPosition;
+        _laserHead.transform.position = _laserPosition;
+
         _laserHead.transform.rotation = Quaternion.Euler(_initDirection);
         _clockwiseRotation = false;
         _currentWaypointIndex = 0;
@@ -128,6 +136,30 @@ public class LaserTurretController : MonoBehaviour
             _isActive = false;
             SetLaserOff();
         }
+        if (_isActive)
+        {
+            _direction = (_laserOutput.position - _laserHead.transform.position).normalized;
+            RaycastHit2D hit = Physics2D.Raycast(_laserOutput.position, _direction);
+            lineRenderer.SetPosition(0, _laserOutput.position);
+            if (_isFirstHitYoung)
+            {
+                _isFirstHitYoung = false;
+                if (hit)
+                {
+                    lineRenderer.SetPosition(1, hit.point);
+                    _initHitPointYoung = hit.point;
+                }
+                else
+                {
+                    lineRenderer.SetPosition(1, _direction * 100);
+                }
+            }
+            else
+            {
+                lineRenderer.SetPosition(1, _initHitPointYoung);
+            }
+            
+        }
     }
 
     private void InitOld()
@@ -135,6 +167,8 @@ public class LaserTurretController : MonoBehaviour
         _laserHead.transform.rotation = Quaternion.Euler(_initDirection);
         _clockwiseRotation = false;
         _laserPosition = _initPosition;
+        _laserHead.transform.position = _laserPosition;
+
         _currentWaypointIndex = 0;
         CancelInvoke();
         if (_laserType==LaserType.Moving)
@@ -159,6 +193,30 @@ public class LaserTurretController : MonoBehaviour
         {
             _isActive = false;
             SetLaserOff();
+        }
+        if (_isActive)
+        {
+            _direction = (_laserOutput.position - _laserHead.transform.position).normalized;
+            RaycastHit2D hit = Physics2D.Raycast(_laserOutput.position, _direction);
+            lineRenderer.SetPosition(0, _laserOutput.position);
+            if (_isFirstHitOld)
+            {
+                _isFirstHitOld = false;
+                if (hit)
+                {
+                    lineRenderer.SetPosition(1, hit.point);
+                    _initHitPointOld = hit.point;
+                }
+                else
+                {
+                    lineRenderer.SetPosition(1, _direction * 100);
+                }
+            }
+            else
+            {
+                lineRenderer.SetPosition(1, _initHitPointOld);
+            }
+            
         }
     }
     //-------------------------------
@@ -189,28 +247,15 @@ public class LaserTurretController : MonoBehaviour
             
             
             
-            _laserRay.SetActive(true);
-            _direction = (_laserOutput.position - _laserHead.transform.position).normalized;
-            RaycastHit2D hit = Physics2D.Raycast(_laserOutput.position, _direction);
-            lineRenderer.SetPosition(0, _laserOutput.position);
-            if (hit)
-            {
-                lineRenderer.SetPosition(1, hit.point);
-                CheckCollision(hit.collider);
-            }
-            else
-            {
-                lineRenderer.SetPosition(1, _direction * 100);
-            }
+           
+            
         }
-        else
-        {
-            _laserRay.SetActive(false);
-        }
+       
     }
     private void FixedUpdate()
     {
         _laserHead.transform.position = _laserPosition;
+        
         if (Vector2.Distance(_waypoints[_currentWaypointIndex].transform.position, _laserPosition) < .1f)
         {
             _currentWaypointIndex++;
@@ -243,6 +288,21 @@ public class LaserTurretController : MonoBehaviour
             else
                 _laserHead.transform.Rotate(new Vector3(0,0,Time.fixedDeltaTime + _angularSpeed));
         }
+        _direction = (_laserOutput.position - _laserHead.transform.position).normalized;
+        _raycastHit2D = Physics2D.Raycast(_laserOutput.position, _direction);
+        if (_isActive)
+        {
+            lineRenderer.SetPosition(0, _laserOutput.position);
+            if (_raycastHit2D)
+            {
+                lineRenderer.SetPosition(1, _raycastHit2D.point);
+                CheckCollision(_raycastHit2D.collider);
+            }
+            else
+            {
+                lineRenderer.SetPosition(1, _direction * 100);
+            }
+        }
         
     }
     
@@ -250,13 +310,18 @@ public class LaserTurretController : MonoBehaviour
     // Check if the laser ray is hitting the player/ghost
     private void CheckCollision(Collider2D col)
     {
-        if (_laserRay.activeSelf && GameManager.Instance.State!=GameState.Paradox)
+        if (_laserRay.activeSelf && GameManager.Instance.State!=GameState.Paradox&&GameManager.Instance.State!=GameState.Paradox&&GameManager.Instance.State!=GameState.StartingOldTurn&&GameManager.Instance.State!=GameState.StartingYoungTurn)
         {
             if (col.gameObject.CompareTag("Young"))
             {
-                GameManager.Instance.UpdateGameState(GameState.StartingYoungTurn);
+                col.gameObject.GetComponent<CharacterController2D>().SetShocked();
             }
-            else if (col.gameObject.CompareTag("Old") || col.gameObject.CompareTag("Ghost"))
+            else if (col.gameObject.CompareTag("Old"))
+            {
+                col.gameObject.GetComponent<OldController2D>().SetShocked();
+
+            }
+            else if ( col.gameObject.CompareTag("Ghost"))
             {
                 GameManager.Instance.UpdateGameState(GameState.Paradox);
             }
@@ -321,11 +386,18 @@ public class LaserTurretController : MonoBehaviour
     {
         _spriteRenderer.sprite = _spriteOn1;
         _sprintOn = 1;
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, _laserOutput.position);
+        lineRenderer.SetPosition(1, _raycastHit2D.point);
+
+
     }
 
     private void SetLaserOff()
     {
         _spriteRenderer.sprite = _spriteOff;
+        lineRenderer.enabled = false;
+
     }
     
 }

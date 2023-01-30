@@ -75,7 +75,7 @@ public class MenuManager : MonoBehaviour
 
     private void PausePerformed(InputAction.CallbackContext obj)
     {
-        if (GameManager.Instance.IsPlayablePhase() || GameManager.Instance.State==GameState.PauseMenu)
+        if (GameManager.Instance.IsPlayablePhase() || GameManager.Instance.State==GameState.PauseMenu||GameManager.Instance.State==GameState.StartingYoungTurn||GameManager.Instance.State==GameState.StartingOldTurn)
         {
             GameManager.Instance.TriggerMenu();
         }

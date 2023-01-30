@@ -9,10 +9,15 @@ public class GraphicsHandler : MonoBehaviour
     public List<ResItem> resolution = new List<ResItem>();
     private int selectedResolution;
     public Toggle fullscreenToggle;
+    public Toggle colorBlindToggle;
+    private bool _colorBlindMode;
 
     private void Awake()
     {
         m_Dropdown.onValueChanged.AddListener(delegate { DropdownValueChanged(m_Dropdown); });
+        colorBlindToggle.onValueChanged.AddListener(delegate { OnColorBlindToggleValueChanged(colorBlindToggle); });
+        colorBlindToggle.isOn = AudioManager.instance.GetColorBlindMode();
+        
         fullscreenToggle.onValueChanged.AddListener(delegate { OnToggleValueChanged(fullscreenToggle); });
         fullscreenToggle.isOn = AudioManager.instance.getFullScreen();
         int index = AudioManager.instance.getResolutionIndex();
@@ -47,6 +52,13 @@ public class GraphicsHandler : MonoBehaviour
         FullScreene(fullscreenToggle.isOn);
     }
 
+    public void OnColorBlindToggleValueChanged(Toggle change)
+    {
+        colorBlindToggle.isOn = change.isOn;
+        AudioManager.instance.SetColorBindMode(colorBlindToggle.isOn);
+        
+    }
+
     public void FullScreene(bool isOn)
     {
         if (isOn)
@@ -59,6 +71,11 @@ public class GraphicsHandler : MonoBehaviour
             Screen.fullScreen = false;
             AudioManager.instance.setFullScreen(false);
         }
+    }
+
+    public void SetColorBindMode(bool _colorBlindMode)
+    {
+        
     }
 }
 
