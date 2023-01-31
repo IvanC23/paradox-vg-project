@@ -9,7 +9,7 @@ public class CameraShakeScript : MonoBehaviour
     
     public Transform cameraTransform = default;
     private Vector3 _orignalPosOfCam = default;
-    public float shakeFrequency = default;
+    private float shakeFrequency = 0.25f;
     private bool shake = false;
 
     // Start is called before the first frame update
