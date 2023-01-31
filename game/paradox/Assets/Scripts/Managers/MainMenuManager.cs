@@ -22,6 +22,9 @@ public class MainMenuManager : MonoBehaviour
     public GameObject soundsButton;
     public GameObject resolutionButton;
     public GameObject galleryButton;
+    public GameObject newGameButton;
+    public GameObject popUpMenu;
+    public GameObject popUpBack;
 
     private bool _isWaiting;
     private void Start()
@@ -32,13 +35,16 @@ public class MainMenuManager : MonoBehaviour
         optionsMenu.SetActive(false);
         resolutionMenu.SetActive(false);
         soundsMenu.SetActive(false);
+        popUpMenu.SetActive(false);
         if (LevelManager.Instance.GetFirstTimePlay())
         {
             galleryButton.GetComponent<Button>().interactable = false;
+            newGameButton.GetComponent<Button>().interactable = false;
         }
         else
         {
             galleryButton.GetComponent<Button>().interactable = true;
+            newGameButton.GetComponent<Button>().interactable = true;
         }
     }
 
@@ -57,7 +63,7 @@ public class MainMenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //Reassign
         EventSystem.current.SetSelectedGameObject(levelButton);
-        
+
         mainMenu.SetActive(false);
         selectLevelMenu.SetActive(true);
     }
@@ -68,7 +74,7 @@ public class MainMenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //Reassign
         EventSystem.current.SetSelectedGameObject(startButton);
-        
+
         mainMenu.SetActive(true);
         selectLevelMenu.SetActive(false);
         feedbackMenu.SetActive(false);
@@ -81,11 +87,11 @@ public class MainMenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //Reassign
         EventSystem.current.SetSelectedGameObject(optionsButton);
-        
+
         menu.SetActive(false);
         optionsMenu.SetActive(true);
     }
-    
+
     public void Activate(GameObject menu)
     {
         menu.SetActive(true);
@@ -97,7 +103,7 @@ public class MainMenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //Reassign
         EventSystem.current.SetSelectedGameObject(soundsButton);
-        
+
         optionsMenu.SetActive(false);
         soundsMenu.SetActive(true);
     }
@@ -108,32 +114,32 @@ public class MainMenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //Reassign
         EventSystem.current.SetSelectedGameObject(resolutionButton);
-        
+
         optionsMenu.SetActive(false);
         resolutionMenu.SetActive(true);
     }
-    
+
     public void FeedBack()
     {
         //Clear
         EventSystem.current.SetSelectedGameObject(null);
         //Reassign
         EventSystem.current.SetSelectedGameObject(feedbackButton);
-        
+
         mainMenu.SetActive(false);
         feedbackMenu.SetActive(true);
     }
-    
+
     public void Options()
     {
         //Clear
         EventSystem.current.SetSelectedGameObject(null);
         //Reassign
         EventSystem.current.SetSelectedGameObject(optionsButton);
-        
+
         mainMenu.SetActive(false);
         optionsMenu.SetActive(true);
-        
+
     }
 
     public void Gallery()
@@ -145,10 +151,37 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    public void NewGame()
+    {
+        LevelManager.Instance.NewGame();
+    }
+
     public void QuitGame()
     {
         Application.Quit();
     }
-    
-    
+
+    public void PopUpMenu()
+    {
+        //Clear
+        EventSystem.current.SetSelectedGameObject(null);
+        //Reassign
+        EventSystem.current.SetSelectedGameObject(popUpBack);
+
+        optionsMenu.SetActive(false);
+        popUpMenu.SetActive(true);
+    }
+
+    public void TogglePopUp()
+    {
+        //Clear
+        EventSystem.current.SetSelectedGameObject(null);
+        //Reassign
+        EventSystem.current.SetSelectedGameObject(optionsButton);
+
+        optionsMenu.SetActive(true);
+        popUpMenu.SetActive(false);
+    }
+
+
 }

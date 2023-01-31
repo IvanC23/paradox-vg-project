@@ -5,35 +5,38 @@ using UnityEngine;
 
 public class MovingPlatformController : MonoBehaviour
 {
-     
+
      private int _currentWaypointIndex = 0;
      private Vector3 _initPosition;
      private Vector3 _platformPosition;
      private bool _isMoving;
      private bool _isActive;
      [SerializeField]private GameObject _platform;
+     [SerializeField]private GameObject _wing;
      [SerializeField] private GameObject[] _waypoints;
      [SerializeField] private MovingFunctioning _function;
      [SerializeField] private float speed = 2.0f;
      [Header("Initial state (Young/Old phase)")]
      [SerializeField] private MovingState _initYoungState;
      [SerializeField] private MovingState _initOldStateOFF;
-     
+
      [Header("Sprites")]
      [SerializeField] private Sprite _spriteOffDisappearedIfInactive;
      [SerializeField] private Sprite _spriteOnDisappearedIfInactive;
      [SerializeField] private Sprite _spriteStoppedIfInactive;
      private SpriteRenderer _spriteRenderer;
+     private SpriteRenderer _wingState;
      private Collider2D _collider2D;
      private Collider2D _colliderSticky;
-     
-     
+
+
      //-------------------------------
      private void Awake()
-     { 
+     {
          _spriteRenderer=_platform.GetComponent<SpriteRenderer>();
          _collider2D = _platform.GetComponents<Collider2D>()[0];
          _colliderSticky = _platform.GetComponents<Collider2D>()[1];
+         _wingState = _wing.GetComponent<SpriteRenderer>();
 
          if (_function==MovingFunctioning.DisappearedIfInactive)
          {
@@ -43,8 +46,8 @@ public class MovingPlatformController : MonoBehaviour
          {
              _spriteRenderer.sprite = _spriteStoppedIfInactive;
          }
-         
-         _isMoving = false; 
+
+         _isMoving = false;
          _initPosition = _platform.transform.position;
          _platformPosition = _initPosition;
          //It is subscribing to the event
@@ -54,7 +57,7 @@ public class MovingPlatformController : MonoBehaviour
          {
              //It is unsubscribing to the event
              GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
-         } 
+         }
      private void GameManagerOnGameStateChanged(GameState state)
          {
              if (state == GameState.StartingYoungTurn)
@@ -93,7 +96,7 @@ public class MovingPlatformController : MonoBehaviour
              else if (_function==MovingFunctioning.StoppedIfInactive)
              {
                  _spriteRenderer.sprite = _spriteStoppedIfInactive;
-                 _isMoving = false; 
+                 _isMoving = false;
              }
          }
      }
@@ -103,7 +106,7 @@ public class MovingPlatformController : MonoBehaviour
          _platformPosition = _initPosition;
          _platform.transform.position = _initPosition;
          if (_initOldStateOFF == MovingState.Active)
-         { 
+         {
              if (_function==MovingFunctioning.DisappearedIfInactive)
              {
                  SetActive();
@@ -115,7 +118,7 @@ public class MovingPlatformController : MonoBehaviour
              _isMoving = true;
          }
          else if (_initOldStateOFF==MovingState.Inactive)
-         { 
+         {
              if (_function==MovingFunctioning.DisappearedIfInactive)
              {
                  SetInactive();
@@ -124,12 +127,12 @@ public class MovingPlatformController : MonoBehaviour
              else if (_function==MovingFunctioning.StoppedIfInactive)
              {
                  _spriteRenderer.sprite = _spriteStoppedIfInactive;
-                 _isMoving = false; 
+                 _isMoving = false;
              }
          }
      }
      //-------------------------------
-     
+
      private void FixedUpdate()
      {
           if (Vector2.Distance(_waypoints[_currentWaypointIndex].transform.position, _platformPosition) < .1f)
@@ -149,7 +152,7 @@ public class MovingPlatformController : MonoBehaviour
            _platform.transform.position = _platformPosition;
      }
 
-     
+
 
      public void SwitchState()
      {
@@ -170,14 +173,15 @@ public class MovingPlatformController : MonoBehaviour
              _isMoving = !_isMoving;
          }
      }
-     
-     
+
+
      private void SetActive()
      {
          _spriteRenderer.sprite = _spriteOnDisappearedIfInactive;
          _collider2D.enabled = true;
          _colliderSticky.enabled = true;
          _isActive = true;
+         _wingState.enabled = true;
      }
      private void SetInactive()
      {
@@ -185,6 +189,7 @@ public class MovingPlatformController : MonoBehaviour
          _collider2D.enabled = false;
          _colliderSticky.enabled = false;
          _isActive = false;
+         _wingState.enabled = false;
      }
 }
 

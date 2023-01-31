@@ -56,8 +56,8 @@ public class LevelManager : MonoBehaviour
         GameObject.Find("Door").GetComponent<Animator>().SetTrigger("Close");
         StartCoroutine("EndLevel", level);
     }
-    
-    
+
+
     public void PlayLevel(int level)
     {
         if (level >= SceneManager.sceneCountInBuildSettings)
@@ -82,7 +82,8 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            if(_levelsFinished+1==32){
+            if (_levelsFinished + 1 == 32)
+            {
                 PlayLevel(_levelsFinished);
                 return;
             }
@@ -96,7 +97,7 @@ public class LevelManager : MonoBehaviour
             PlayLevel(33);
             return;
         }
-        
+
         PlayLevel(_currentLevel + 1);
     }
     public void RestartLevel()
@@ -190,7 +191,7 @@ public class LevelManager : MonoBehaviour
 
     public void ScanDebug()
     {
-        
+
         for (int i = 0; i < numOfLevels; i++)
         {
             Debug.Log("Completion time for level " + i + " is :" + completionTimePerLevel[i]);
@@ -211,7 +212,7 @@ public class LevelManager : MonoBehaviour
         //Debug.Log("Entered here");
 
         stats = gamestats;
-        
+
         /*if (stats != null)
         {
             Debug.Log("Found stats");
@@ -219,7 +220,8 @@ public class LevelManager : MonoBehaviour
             Debug.Log(stats.GetCompletionTime());
         }*/
     }
-    public void CollectData(){
+    public void CollectData()
+    {
         if (_currentLevel != 0)
         {
 
@@ -247,7 +249,8 @@ public class LevelManager : MonoBehaviour
             //Debug.Log(stats.GetCompletionTime());
             SaveData();
         }
-        if(_currentLevel == 1){
+        if (_currentLevel == 1)
+        {
             firstTimePlaying = false;
         }
 
@@ -276,6 +279,26 @@ public class LevelManager : MonoBehaviour
     public bool GetFirstTimePlay()
     {
         return firstTimePlaying;
+    }
+    public void NewGame()
+    {
+        starsPerLevel = new int[numOfLevels];
+        completionTimePerLevel = new float[numOfLevels];
+        overallTimePerLevel = new float[numOfLevels];
+        paradoxPerLevel = new int[numOfLevels];
+        retryPerLevel = new int[numOfLevels];
+        _levelsFinished = -1;
+        for (int i = 0; i < numOfLevels; i++)
+        {
+            starsPerLevel[i] = 0;
+            completionTimePerLevel[i] = 0f;
+            overallTimePerLevel[i] = 0f;
+            retryPerLevel[i] = 0;
+            paradoxPerLevel[i] = 0;
+        }
+        SaveSystem.DestroyData();
+        firstTimePlaying = true;
+        PlayFirstLevel();
     }
 }
 

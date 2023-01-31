@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
 
     private bool _isTutorial;
+    private bool _isLoaded;
 
 
     private void Awake()
@@ -37,6 +38,26 @@ public class GameManager : MonoBehaviour
      */
     public void UpdateGameState(GameState newState)
     {
+        if (!_isLoaded&&newState!=GameState.StartingYoungTurn)
+        {
+            return;
+        }
+
+        _isLoaded = true;
+        if (State == GameState.Paradox)
+        {
+            if (newState!=GameState.StartingOldTurn)
+            {
+                return;
+            }
+        }
+        if (State == GameState.StartingOldTurn)
+        {
+            if (newState==GameState.Paradox)
+            {
+                return;
+            }
+        }
         if (State == GameState.LevelCompleted)
         {
             if (newState!=GameState.StatisticsMenu)
@@ -71,7 +92,7 @@ public class GameManager : MonoBehaviour
                     Time.timeScale = 1f;
                     break;
                 case GameState.StartingSecondPart:
-                    if (PreviousGameState != GameState.YoungPlayerTurn)
+                    if (PreviousGameState != GameState.ThirdPart)
                     {
                         UpdateGameState(GameState.SecondPart);
                     }
@@ -162,7 +183,7 @@ public class GameManager : MonoBehaviour
             UpdateGameState(PreviousGameState);
             Time.timeScale = 1f;
         }
-        else if (State == GameState.YoungPlayerTurn || State == GameState.OldPlayerTurn || State == GameState.SecondPart || State == GameState.ThirdPart)
+        else if ((State == GameState.StartingYoungTurn||State == GameState.YoungPlayerTurn|| State == GameState.StartingOldTurn|| State == GameState.OldPlayerTurn || State == GameState.SecondPart || State == GameState.ThirdPart)&&!PlayerTransitionManager.Instance.isProcessing)
         {
             UpdateGameState(GameState.PauseMenu);
             Time.timeScale = 0f;
@@ -203,7 +224,7 @@ public class GameManager : MonoBehaviour
 
 public enum GameState
 {
-
+    
     StartingYoungTurn,
     YoungPlayerTurn,
 

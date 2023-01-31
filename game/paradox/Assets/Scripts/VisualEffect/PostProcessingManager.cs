@@ -7,11 +7,12 @@ using UnityEngine.Rendering.PostProcessing;
 public class PostProcessingManager : MonoBehaviour
 {
     public static PostProcessingManager Instance;
-    [SerializeField] private ScreenSize ourScreenSize;
+    //[SerializeField] private ScreenSize ourScreenSize;
     public GameObject Camera;
-    private GameObject Old_Player_Position;
+    //private GameObject Old_Player_Position;
 
     private Vignette _vignette;
+    private ColorGrading _colorGrading;
     private Vector2 normalizedOldPlayerPos;
     private bool upIntensityDone = false;
     public bool isProcessing = false;
@@ -30,6 +31,7 @@ public class PostProcessingManager : MonoBehaviour
     }
     private void GameManagerOnGameStateChanged(GameState state)
     {
+        /*
         if (GameManager.Instance.IsTutorial())
         {
             if (state == GameState.StartingSecondPart && GameManager.Instance.PreviousGameState == GameState.YoungPlayerTurn)
@@ -46,22 +48,26 @@ public class PostProcessingManager : MonoBehaviour
             }
 
         }
+        */
 
         if (state == GameState.Paradox)
         {
             Camera.GetComponent<CameraShakeScript>().setShakeTrue();
+            _colorGrading.active = true;
         }
         else
         {
             Camera.GetComponent<CameraShakeScript>().setShakeFalse();
+            _colorGrading.active = false;
         }
     }
 
     private void Start()
     {
-        Old_Player_Position = GameObject.Find("Old_Position");
-        normalizedOldPlayerPos = NormPosFromZeroToOne(new Vector2(Old_Player_Position.transform.position.x, Old_Player_Position.transform.position.y));
+        //Old_Player_Position = GameObject.Find("Old_Position");
+        //normalizedOldPlayerPos = NormPosFromZeroToOne(new Vector2(Old_Player_Position.transform.position.x, Old_Player_Position.transform.position.y));
         Camera.GetComponent<PostProcessVolume>().profile.TryGetSettings(out _vignette);
+        Camera.GetComponent<PostProcessVolume>().profile.TryGetSettings(out _colorGrading);
 
         //Wanted to center the camera on the old player but doesn't work in this way
         _vignette.center.value = normalizedOldPlayerPos;
@@ -70,6 +76,7 @@ public class PostProcessingManager : MonoBehaviour
 
 
     //COROUTINE TO ADD A TRANSACTION BETWEEN FIRST AND SECOND PART
+    /*
     IEnumerator StartDelay()
     {
         isProcessing = true;
@@ -110,7 +117,8 @@ public class PostProcessingManager : MonoBehaviour
 
 
     }
-
+    */
+    /*
     public Vector2 NormPosFromZeroToOne(Vector2 input)
     {
         //INFO ON HOW TO CALCULATE DIMENSIONS
@@ -141,4 +149,5 @@ public class PostProcessingManager : MonoBehaviour
         Medium,
         Large
     }
+    */
 }

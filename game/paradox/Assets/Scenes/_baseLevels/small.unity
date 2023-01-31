@@ -1265,8 +1265,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1980844145}
     m_Modifications:
     - target: {fileID: 4450804269978877522, guid: 911e4f79862901749a4ef8f989e8e2fb, type: 3}
+      propertyPath: _laserType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450804269978877522, guid: 911e4f79862901749a4ef8f989e8e2fb, type: 3}
       propertyPath: _initYoungState
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450804269978877522, guid: 911e4f79862901749a4ef8f989e8e2fb, type: 3}
+      propertyPath: _laserDecoration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4450804269978877526, guid: 911e4f79862901749a4ef8f989e8e2fb, type: 3}
       propertyPath: m_Name
@@ -2802,8 +2810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce80812f1d33d444828162fdbdeb1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1605438224}
-  gameOverMenu: {fileID: 599101777}
 --- !u!4 &1184885258
 Transform:
   m_ObjectHideFlags: 0

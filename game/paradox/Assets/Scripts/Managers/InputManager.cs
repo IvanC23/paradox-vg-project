@@ -15,11 +15,28 @@ public class InputManager : MonoBehaviour
     private PlayerInputactions _actions;
     private bool _isActionPerfomed;
     private bool _isFirstAction=true;
+
+    private AudioManager _audioManager;
     
     private void Awake()
     {
         _actions = new PlayerInputactions();
     }
+
+    private void Start()
+    {
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        if (_audioManager.GetIsUsingKeyboard())
+        {
+            SetKeyboard();
+        }
+        else
+        {
+            SetGamepad();
+        }
+        
+    }
+
     private void OnEnable()
     {
         _actions.Enable();
@@ -32,7 +49,7 @@ public class InputManager : MonoBehaviour
         _actions.OldPlayer.Restart.performed += AnyActionPerformed;
         _actions.OldPlayer.Interact.performed += AnyActionPerformed;
         _actions.OldPlayer.Dash.performed += AnyActionPerformed;
-        _actions.UI.Pause.performed += AnyActionPerformed;
+        //_actions.UI.Pause.performed += AnyActionPerformed;
 
     }
     
@@ -48,7 +65,7 @@ public class InputManager : MonoBehaviour
         _actions.OldPlayer.Restart.performed -= AnyActionPerformed;
         _actions.OldPlayer.Interact.performed -= AnyActionPerformed;
         _actions.OldPlayer.Dash.performed -= AnyActionPerformed;
-        _actions.UI.Pause.performed -= AnyActionPerformed;
+        //_actions.UI.Pause.performed -= AnyActionPerformed;
         
     }
     
@@ -58,18 +75,6 @@ public class InputManager : MonoBehaviour
     {
         if (GameManager.Instance.State == GameState.StartingYoungTurn)
         {
-            /*
-            if (Input.anyKey)
-            {
-                holdingDown = true;
-            }
-
-            if (!Input.anyKey && holdingDown)
-            {
-                GameManager.Instance.UpdateGameState(GameState.YoungPlayerTurn);
-                holdingDown = false;
-            }
-            */
             if (_isActionPerfomed)
             {
                 GameManager.Instance.UpdateGameState(GameState.YoungPlayerTurn);
@@ -77,7 +82,7 @@ public class InputManager : MonoBehaviour
             
         }
 
-        if (GameManager.Instance.State == GameState.StartingOldTurn && !PostProcessingManager.Instance.isProcessing)
+        if (GameManager.Instance.State == GameState.StartingOldTurn && !PlayerTransitionManager.Instance.isProcessing)
         {
             Time.timeScale = 0f;
             if (_isActionPerfomed)
@@ -91,11 +96,13 @@ public class InputManager : MonoBehaviour
     private void SetGamepad()
     {
         _isUsingGamepad = true;
+        _audioManager.SetIsUsingKeyboard(false);
         OnChangedInputDevice?.Invoke(DeviceUsed.Gamepad);
     }
     private void SetKeyboard()
     {
         _isUsingGamepad = false;
+        _audioManager.SetIsUsingKeyboard(true);
         OnChangedInputDevice?.Invoke(DeviceUsed.Keyboard);
     }
     private void AnyActionPerformed(InputAction.CallbackContext obj)
