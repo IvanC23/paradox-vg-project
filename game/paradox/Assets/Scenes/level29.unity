@@ -1514,7 +1514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450804269978877527, guid: 911e4f79862901749a4ef8f989e8e2fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.595127
+      value: 6.89
       objectReference: {fileID: 0}
     - target: {fileID: 4450804269978877527, guid: 911e4f79862901749a4ef8f989e8e2fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4099,8 +4099,8 @@ Transform:
   m_Children:
   - {fileID: 1872549520}
   - {fileID: 285530639}
-  - {fileID: 2046331479}
   - {fileID: 2088497904}
+  - {fileID: 2046331479}
   - {fileID: 219705854}
   m_Father: {fileID: 511356336}
   m_RootOrder: 1
