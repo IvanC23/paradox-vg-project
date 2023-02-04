@@ -2063,7 +2063,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 989591994}
-  shakeFrequency: 0.15
 --- !u!81 &989591992
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2525,7 +2524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e03d9916ef98fc4aa524e91a7bc10b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ourScreenSize: 2
   Camera: {fileID: 989591988}
   isProcessing: 0
 --- !u!4 &1292762454 stripped
