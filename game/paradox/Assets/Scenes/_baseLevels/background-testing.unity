@@ -327,11 +327,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 892594429407892373, guid: 46cb22647de504d3ea82bbd0ac955f6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5550845888213981934, guid: 46cb22647de504d3ea82bbd0ac955f6a, type: 3}
       propertyPath: m_Name
       value: BKG3
       objectReference: {fileID: 0}
     - target: {fileID: 5550845888213981934, guid: 46cb22647de504d3ea82bbd0ac955f6a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6747932288203363537, guid: 46cb22647de504d3ea82bbd0ac955f6a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}

@@ -396,7 +396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 60734795}
-  shakeFrequency: 0.15
 --- !u!81 &60734794
 AudioListener:
   m_ObjectHideFlags: 0
@@ -750,6 +749,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 113952755}
     m_Modifications:
+    - target: {fileID: 1169183961219781273, guid: a329ace608738144dbfc5de3c3278cb4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081660017997535019, guid: a329ace608738144dbfc5de3c3278cb4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4081660018681510380, guid: a329ace608738144dbfc5de3c3278cb4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3337,7 +3344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e03d9916ef98fc4aa524e91a7bc10b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ourScreenSize: 1
   Camera: {fileID: 60734789}
   isProcessing: 0
 --- !u!1001 &2134395793
