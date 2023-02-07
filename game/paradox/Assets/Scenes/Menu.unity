@@ -5250,16 +5250,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Marco Buttiglione
+  m_text: 'Marco D. Buttiglione
 
     Ivan Crusco
 
     Raffaele Cicellini
 
-    Aral Yucel
+    Aral
+    Yucel
 
-    Riccardo
-    Rigamondi'
+    Riccardo Rigamondi'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 506f2214d37d84e3d8374f2c259f1fd0, type: 2}
   m_sharedMaterial: {fileID: 904416381766787202, guid: 506f2214d37d84e3d8374f2c259f1fd0, type: 2}
@@ -5322,7 +5322,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -70.41489, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5838,7 +5838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1286606972
 RectTransform:
   m_ObjectHideFlags: 0
