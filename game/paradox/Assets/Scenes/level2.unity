@@ -998,6 +998,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 907318663}
     m_Modifications:
+    - target: {fileID: 4086824291908143835, guid: 55e562a3f8eef664a8e366d556a44583, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5917056540089385680, guid: 55e562a3f8eef664a8e366d556a44583, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1231,7 +1235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 1093535057}
-  shakeFrequency: 0.15
 --- !u!114 &1093535059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2162,7 +2165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e03d9916ef98fc4aa524e91a7bc10b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ourScreenSize: 0
   Camera: {fileID: 1093535051}
   isProcessing: 0
 --- !u!1001 &1670306295
