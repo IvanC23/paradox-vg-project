@@ -15,6 +15,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject soundsMenu;
     public GameObject resolutionMenu;
+    public GameObject creditsMenu;
     public GameObject optionsButton;
     public GameObject levelButton;
     public GameObject startButton;
@@ -25,6 +26,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject newGameButton;
     public GameObject popUpMenu;
     public GameObject popUpBack;
+    public GameObject creditsButton;
 
     private bool _isWaiting;
     private void Start()
@@ -36,6 +38,7 @@ public class MainMenuManager : MonoBehaviour
         resolutionMenu.SetActive(false);
         soundsMenu.SetActive(false);
         popUpMenu.SetActive(false);
+        creditsMenu.SetActive(false);
         if (LevelManager.Instance.GetFirstTimePlay())
         {
             galleryButton.GetComponent<Button>().interactable = false;
@@ -117,6 +120,17 @@ public class MainMenuManager : MonoBehaviour
 
         optionsMenu.SetActive(false);
         resolutionMenu.SetActive(true);
+    }
+
+    public void Credits()
+    {
+        //Clear
+        EventSystem.current.SetSelectedGameObject(null);
+        //Reassign
+        EventSystem.current.SetSelectedGameObject(creditsButton);
+
+        optionsMenu.SetActive(false);
+        creditsMenu.SetActive(true);
     }
 
     public void FeedBack()

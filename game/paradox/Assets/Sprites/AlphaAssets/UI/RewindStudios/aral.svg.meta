@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 39ee0762c97976640bd27a973fbe4170
+guid: 6f97d71ff05274c46b4a6e8796bdb0d1
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -12,23 +12,23 @@ ScriptedImporter:
   texturedSpriteMeshType: 0
   svgPixelsPerUnit: 100
   gradientResolution: 64
-  alignment: 0
+  alignment: 6
   customPivot: {x: 0, y: 0}
   generatePhysicsShape: 0
   viewportOptions: 0
   preserveViewport: 0
-  advancedMode: 1
+  advancedMode: 0
   predefinedResolutionIndex: 1
   targetResolution: 1080
   resolutionMultiplier: 1
-  stepDistance: 6
+  stepDistance: 10
   samplingStepDistance: 100
   maxCordDeviationEnabled: 0
   maxCordDeviation: 1
   maxTangentAngleEnabled: 0
   maxTangentAngle: 5
   keepTextureAspectRatio: 1
-  textureSize: 2048
+  textureSize: 256
   textureWidth: 256
   textureHeight: 256
   wrapMode: 0
@@ -39,16 +39,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: 
+      name: aralSprite
       originalName: 
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.50405073, y: 0.49848044}
       alignment: 0
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 0
-        height: 0
-      spriteID: 25d2a4989632b7548ade6f3197e53a93
+        width: 54
+        height: 151
+      spriteID: 53c4ecd1da61c4177bf9636223347e85
     PhysicsOutlines: []
