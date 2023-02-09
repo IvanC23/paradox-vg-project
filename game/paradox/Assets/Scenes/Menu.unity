@@ -6320,7 +6320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 233, y: -265}
+  m_AnchoredPosition: {x: 233, y: -251}
   m_SizeDelta: {x: 438.96, y: 176.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441342061
@@ -6343,8 +6343,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Politecnico di Milano\nA.Y. 2022\u201323\n\nCourse in\nVideogame Design
-    and Programming\nProf. Pier Luca Lanzi"
+  m_text: "Politecnico di Milano\nA.Y. 2022\u201323\n\nDeveloped for the course in\nVideogame
+    Design and Programming\nProf. Pier Luca Lanzi\nProf. Daniele Loiacono"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 506f2214d37d84e3d8374f2c259f1fd0, type: 2}
   m_sharedMaterial: {fileID: 904416381766787202, guid: 506f2214d37d84e3d8374f2c259f1fd0, type: 2}
