@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2101313590}
     m_Modifications:
+    - target: {fileID: 1808171524120261298, guid: a329ace608738144dbfc5de3c3278cb4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4081660018681510380, guid: a329ace608738144dbfc5de3c3278cb4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2302,7 +2306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e03d9916ef98fc4aa524e91a7bc10b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ourScreenSize: 1
   Camera: {fileID: 1093535051}
   isProcessing: 0
 --- !u!4 &1639861546 stripped

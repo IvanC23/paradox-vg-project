@@ -373,7 +373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e03d9916ef98fc4aa524e91a7bc10b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ourScreenSize: 2
   Camera: {fileID: 462037553}
   isProcessing: 0
 --- !u!1001 &210204088
@@ -1426,7 +1425,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 462037559}
-  shakeFrequency: 0.15
 --- !u!81 &462037557
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4333,6 +4331,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 684730655}
     m_Modifications:
+    - target: {fileID: 700221002286915452, guid: 6fa9db87f1a160942ae0a87c21bfff81, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 700221002453091720, guid: 6fa9db87f1a160942ae0a87c21bfff81, type: 3}
       propertyPath: m_Name
       value: BackgroundL
@@ -4380,6 +4382,10 @@ PrefabInstance:
     - target: {fileID: 700221002453091723, guid: 6fa9db87f1a160942ae0a87c21bfff81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052300538322514801, guid: 6fa9db87f1a160942ae0a87c21bfff81, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fa9db87f1a160942ae0a87c21bfff81, type: 3}

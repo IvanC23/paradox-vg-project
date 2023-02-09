@@ -1107,6 +1107,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8731382393178716466, guid: 6fa9db87f1a160942ae0a87c21bfff81, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fa9db87f1a160942ae0a87c21bfff81, type: 3}
 --- !u!4 &792023410 stripped
@@ -1390,7 +1394,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 1093535057}
-  shakeFrequency: 0.15
 --- !u!81 &1093535055
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2171,7 +2174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e03d9916ef98fc4aa524e91a7bc10b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ourScreenSize: 2
   Camera: {fileID: 1093535051}
   isProcessing: 0
 --- !u!1001 &1619342636
