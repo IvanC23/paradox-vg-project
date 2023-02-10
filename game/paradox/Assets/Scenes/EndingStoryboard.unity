@@ -3012,9 +3012,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Right as he looks away... The time machine
+  m_text: 'Right as he looks away...
 
-    is snagged under his nose!'
+    Someone else snags the time machine under
+    his nose!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 506f2214d37d84e3d8374f2c259f1fd0, type: 2}
   m_sharedMaterial: {fileID: 904416381766787202, guid: 506f2214d37d84e3d8374f2c259f1fd0, type: 2}
@@ -3270,7 +3271,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
@@ -3779,7 +3780,7 @@ MonoBehaviour:
   m_text: 'He''s stealing the time machine from his
 
     younger self and running
-    as fast as he can!'
+    as far as he can!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 506f2214d37d84e3d8374f2c259f1fd0, type: 2}
   m_sharedMaterial: {fileID: 904416381766787202, guid: 506f2214d37d84e3d8374f2c259f1fd0, type: 2}
