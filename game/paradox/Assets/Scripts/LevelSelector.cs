@@ -16,7 +16,7 @@ public class LevelSelector : MonoBehaviour
     private bool _isAdmin;
 
     private int[] _starsPerLevel;
-    private int _numberOfExtraLevels=3;
+    private int _numberOfExtraLevels=4;
     private bool _isWaiting = false;
     [SerializeField] private LevelNamesParameters levelNames;
 
