@@ -7,7 +7,7 @@ public class MaskPositioningScript : MonoBehaviour
     private GameObject OldPlayerPos;
     void Awake(){
         OldPlayerPos = GameObject.Find("Old_Position");
-        transform.localPosition = OldPlayerPos.transform.localPosition;
+        //transform.localPosition = OldPlayerPos.transform.localPosition;
         transform.position = OldPlayerPos.transform.position;
     }
     // Start is called before the first frame update
