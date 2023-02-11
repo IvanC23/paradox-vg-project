@@ -30,6 +30,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject creditsButton;
     public GameObject firstGalleryButton;
     public GameObject outroButton;
+    public GameObject outroImg;
+    public GameObject outroImgLock;
 
     private bool _isWaiting;
     private void Start()
@@ -55,8 +57,12 @@ public class MainMenuManager : MonoBehaviour
         }
         if(LevelManager.Instance.getLevelsFinished()>=31){
             outroButton.GetComponent<Button>().interactable = true;
+            outroImg.SetActive(true);
+            outroImgLock.SetActive(false);
         }else{
             outroButton.GetComponent<Button>().interactable = false;
+            outroImg.SetActive(false);
+            outroImgLock.SetActive(true);
         }
     }
 
@@ -175,7 +181,7 @@ public class MainMenuManager : MonoBehaviour
 
         mainMenu.SetActive(false);
         galleryMenu.SetActive(true);
-        
+
     }
 
     public void PlayIntro(){
