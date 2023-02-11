@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5308926444542599441}
   - component: {fileID: 8269740256495340137}
+  - component: {fileID: 9215389976057525482}
   m_Layer: 0
   m_Name: PlayerTransition
   m_TagString: Untagged
@@ -60,6 +61,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &9215389976057525482
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171307486725312153}
+  m_Enabled: 1
+  m_SortingLayerID: -1195606493
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &5131516344908441299
 GameObject:
   m_ObjectHideFlags: 0
