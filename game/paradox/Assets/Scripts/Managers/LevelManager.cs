@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     private int _levelsFinished = 0;
 
     private bool firstTimePlaying = true;
+    private bool fromGallery = false;
     private int numOfLevels;
     //private Scene _nextScene;
 
@@ -36,7 +37,7 @@ public class LevelManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            numOfLevels = SceneManager.sceneCountInBuildSettings - 3;
+            numOfLevels = SceneManager.sceneCountInBuildSettings - 4;
             LoadData();
             DontDestroyOnLoad(gameObject);
         }
@@ -77,12 +78,13 @@ public class LevelManager : MonoBehaviour
     {
         if (firstTimePlaying)
         {
+            fromGallery = false;
             //OPEN STORYBOARD
             PlayLevel(32);
         }
         else
         {
-            if (_levelsFinished + 1 == 32)
+            if (_levelsFinished == 31)
             {
                 PlayLevel(_levelsFinished);
                 return;
@@ -258,21 +260,32 @@ public class LevelManager : MonoBehaviour
 
     public void EndedStoryboard()
     {
-        if (firstTimePlaying)
-        {
-            PlayLevel(1);
-        }
-        else
-        {
+        if(fromGallery==true){
             PlayMainMenu();
+        }else{
+            if(_currentLevel==32){
+            PlayLevel(1);
+            }else if(_currentLevel==33){
+            PlayLevel(34);
+            }
         }
+        fromGallery=false;
     }
 
-    public void GoToStoryBoard()
+    public void GoToStoryBoardIntro()
     {
+        fromGallery = true;
         if (!firstTimePlaying)
         {
             PlayLevel(32);
+        }
+    }
+    public void GoToStoryBoardOutro()
+    {
+        fromGallery = true;
+        if (!firstTimePlaying)
+        {
+            PlayLevel(33);
         }
     }
 
@@ -300,6 +313,11 @@ public class LevelManager : MonoBehaviour
         firstTimePlaying = true;
         PlayFirstLevel();
     }
+
+    public bool GetFromGallery(){
+        return fromGallery;
+    }
+    
 }
 
 

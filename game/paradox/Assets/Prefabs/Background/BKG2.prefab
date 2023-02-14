@@ -176,6 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7179967983933794512}
+  - component: {fileID: 2190978858921669972}
   m_Layer: 0
   m_Name: BKG2
   m_TagString: Untagged
@@ -202,6 +203,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &2190978858921669972
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004705845832229952}
+  m_Enabled: 1
+  m_SortingLayerID: -1092028141
+  m_SortingLayer: -1
+  m_SortingOrder: 0
 --- !u!1 &2775280558513274486
 GameObject:
   m_ObjectHideFlags: 0

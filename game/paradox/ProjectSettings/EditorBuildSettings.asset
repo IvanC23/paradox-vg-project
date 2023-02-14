@@ -105,6 +105,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartingStoryboard.unity
     guid: 531b49332a9256749ae62db2442045d4
   - enabled: 1
+    path: Assets/Scenes/EndingStoryboard.unity
+    guid: ccf45abe7dc3945d19dd40326178a571
+  - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 91a64f4b1e25f3543964db16746274db
   m_configObjects: {}
