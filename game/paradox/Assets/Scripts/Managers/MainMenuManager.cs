@@ -16,6 +16,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject soundsMenu;
     public GameObject resolutionMenu;
     public GameObject creditsMenu;
+    public GameObject galleryMenu;
     public GameObject optionsButton;
     public GameObject levelButton;
     public GameObject startButton;
@@ -27,6 +28,10 @@ public class MainMenuManager : MonoBehaviour
     public GameObject popUpMenu;
     public GameObject popUpBack;
     public GameObject creditsButton;
+    public GameObject firstGalleryButton;
+    public GameObject outroButton;
+    public GameObject outroImg;
+    public GameObject outroImgLock;
 
     private bool _isWaiting;
     private void Start()
@@ -39,15 +44,25 @@ public class MainMenuManager : MonoBehaviour
         soundsMenu.SetActive(false);
         popUpMenu.SetActive(false);
         creditsMenu.SetActive(false);
+        galleryMenu.SetActive(false);
         if (LevelManager.Instance.GetFirstTimePlay())
         {
-            galleryButton.GetComponent<Button>().interactable = false;
+            firstGalleryButton.GetComponent<Button>().interactable = false;
             newGameButton.GetComponent<Button>().interactable = false;
         }
         else
         {
-            galleryButton.GetComponent<Button>().interactable = true;
+            firstGalleryButton.GetComponent<Button>().interactable = true;
             newGameButton.GetComponent<Button>().interactable = true;
+        }
+        if(LevelManager.Instance.getLevelsFinished()>=31){
+            outroButton.GetComponent<Button>().interactable = true;
+            outroImg.SetActive(true);
+            outroImgLock.SetActive(false);
+        }else{
+            outroButton.GetComponent<Button>().interactable = false;
+            outroImg.SetActive(false);
+            outroImgLock.SetActive(true);
         }
     }
 
@@ -82,6 +97,7 @@ public class MainMenuManager : MonoBehaviour
         selectLevelMenu.SetActive(false);
         feedbackMenu.SetActive(false);
         optionsMenu.SetActive(false);
+        galleryMenu.SetActive(false);
     }
 
     public void BackToOptions(GameObject menu)
@@ -158,16 +174,38 @@ public class MainMenuManager : MonoBehaviour
 
     public void Gallery()
     {
+        //Clear
+        EventSystem.current.SetSelectedGameObject(null);
+        //Reassign
+        EventSystem.current.SetSelectedGameObject(galleryButton);
+
+        mainMenu.SetActive(false);
+        galleryMenu.SetActive(true);
+
+    }
+
+    public void PlayIntro(){
         if (!_isWaiting)
         {
             _isWaiting = true;
-            LevelManager.Instance.GoToStoryBoard();
+            LevelManager.Instance.GoToStoryBoardIntro();
+        }
+    }
+    public void PlayOutro(){
+        if (!_isWaiting)
+        {
+            _isWaiting = true;
+            LevelManager.Instance.GoToStoryBoardOutro();
         }
     }
 
     public void NewGame()
     {
-        LevelManager.Instance.NewGame();
+        if (!_isWaiting)
+        {
+            _isWaiting = true;
+            LevelManager.Instance.NewGame();
+        }
     }
 
     public void QuitGame()

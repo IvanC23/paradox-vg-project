@@ -16,7 +16,7 @@ PlayerSettings:
   productName: Paradox
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.16078432, g: 0.33333334, b: 0.5019608, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -42,7 +42,9 @@ PlayerSettings:
   m_SplashScreenLogos:
   - logo: {fileID: 10404, guid: 0000000000000000e000000000000000, type: 0}
     duration: 2
-  - logo: {fileID: 21300000, guid: d71b50c53e329824fb4520a63b9e51ec, type: 3}
+  - logo: {fileID: 21300000, guid: b7caf13260e2940c289c9e5e418ee19b, type: 3}
+    duration: 2
+  - logo: {fileID: 21300000, guid: f292184cfb3a544aab2fcb142cf7c0ee, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}

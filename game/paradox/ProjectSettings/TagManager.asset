@@ -15,6 +15,9 @@ TagManager:
   - DeathLine
   - Collectable
   - CollectableManager
+  - Grid
+  - End_Level
+  - Accessibility
   layers:
   - Default
   - TransparentFX
@@ -49,6 +52,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3202939155
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Transition
+    uniqueID: 3099360803
     locked: 0
