@@ -201,7 +201,11 @@ public class MainMenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        LevelManager.Instance.NewGame();
+        if (!_isWaiting)
+        {
+            _isWaiting = true;
+            LevelManager.Instance.NewGame();
+        }
     }
 
     public void QuitGame()
