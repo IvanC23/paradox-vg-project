@@ -78,6 +78,7 @@ public class LevelManager : MonoBehaviour
     {
         if (firstTimePlaying)
         {
+            fromGallery = false;
             //OPEN STORYBOARD
             PlayLevel(32);
         }
@@ -260,7 +261,6 @@ public class LevelManager : MonoBehaviour
     public void EndedStoryboard()
     {
         if(fromGallery==true){
-            fromGallery=false;
             PlayMainMenu();
         }else{
             if(_currentLevel==32){
@@ -269,7 +269,7 @@ public class LevelManager : MonoBehaviour
             PlayLevel(34);
             }
         }
-        
+        fromGallery=false;
     }
 
     public void GoToStoryBoardIntro()
