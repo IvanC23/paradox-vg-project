@@ -226,14 +226,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 970353887, guid: c338841b07de2426ba59139d16528f2a, type: 3}
-      propertyPath: m_RaycastPadding.z
-      value: -800
-      objectReference: {fileID: 0}
-    - target: {fileID: 1832897164, guid: c338841b07de2426ba59139d16528f2a, type: 3}
-      propertyPath: m_RaycastPadding.z
-      value: -800
-      objectReference: {fileID: 0}
     - target: {fileID: 3702610520565554731, guid: c338841b07de2426ba59139d16528f2a, type: 3}
       propertyPath: m_Camera
       value: 
@@ -325,10 +317,6 @@ PrefabInstance:
     - target: {fileID: 3702610520565554735, guid: c338841b07de2426ba59139d16528f2a, type: 3}
       propertyPath: m_Name
       value: Canvases
-      objectReference: {fileID: 0}
-    - target: {fileID: 3702610520638437406, guid: c338841b07de2426ba59139d16528f2a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c338841b07de2426ba59139d16528f2a, type: 3}

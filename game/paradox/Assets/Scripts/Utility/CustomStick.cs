@@ -9,21 +9,19 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
 {
     public void OnPointerDown(PointerEventData eventData)
     {
-        Vector2 positionObject;
+        
         RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponentInParent<RectTransform>(), eventData.position, eventData.pressEventCamera, out m_PointerDownPos);
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponentInParent<RectTransform>(), ((RectTransform)transform).anchoredPosition, eventData.pressEventCamera, out positionObject);
+  
+        Debug.Log((m_PointerDownPos.x) + "Position pressed");
         
-        Debug.Log((positionObject.x + 1027.2) + "Position object");
-        Debug.Log((m_PointerDownPos.x + 1027.2) + "Position pressed");
         
-        var delta = positionObject.x - m_PointerDownPos.x;
-        if (delta < -88.5)
+        if (m_PointerDownPos.x > -938)
         {
             var startdelta = new Vector2(movementRange, 0.0f);
             ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
             SendValueToControl(startdelta);
         }
-        else if (delta > -88.5)
+        else if (m_PointerDownPos.x < -938)
         {
             var startdelta = new Vector2(-movementRange, 0.0f);
             ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;

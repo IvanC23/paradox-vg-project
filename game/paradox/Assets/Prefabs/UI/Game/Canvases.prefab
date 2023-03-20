@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: -30, y: -40, z: -30, w: -40}
+  m_RaycastPadding: {x: -30, y: -40, z: -800, w: -40}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: -30, y: -40, z: -30, w: -40}
+  m_RaycastPadding: {x: -30, y: -40, z: -800, w: -40}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3453,7 +3453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571368823594600582, guid: 911ae78026cee4b4093d0d1f44aa1d6e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1490684684108692540, guid: 911ae78026cee4b4093d0d1f44aa1d6e, type: 3}
       propertyPath: m_AnchoredPosition.y
