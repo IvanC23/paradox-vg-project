@@ -20,7 +20,7 @@ public class StoryboardScript : MonoBehaviour
         counter = storyboards.transform.childCount;
         prevButton = this.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.GetComponent<Button>();
         nextButton = this.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject;
-        if (currentIdx == 0 && LevelManager.Instance.GetCurrentLevel() == 33 && !LevelManager.Instance.GetFromGallery())
+        if (currentIdx == 0 && LevelManager.Instance.GetCurrentLevel() == 25 && !LevelManager.Instance.GetFromGallery())
         {
             prevButton.interactable = false;
             
@@ -56,7 +56,7 @@ public class StoryboardScript : MonoBehaviour
     {
         currentIdx--;
         
-        if (currentIdx == 0 && LevelManager.Instance.GetCurrentLevel() == 33 && !LevelManager.Instance.GetFromGallery())
+        if (currentIdx == 0 && LevelManager.Instance.GetCurrentLevel() == 25 && !LevelManager.Instance.GetFromGallery())
         {
             EventSystem.current.SetSelectedGameObject(null);
             prevButton.interactable = false;

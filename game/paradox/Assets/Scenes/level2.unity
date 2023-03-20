@@ -1960,6 +1960,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 180358992, guid: c338841b07de2426ba59139d16528f2a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1547
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008017156, guid: c338841b07de2426ba59139d16528f2a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684825108, guid: c338841b07de2426ba59139d16528f2a, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -342
+      objectReference: {fileID: 0}
     - target: {fileID: 1176424332984873376, guid: c338841b07de2426ba59139d16528f2a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

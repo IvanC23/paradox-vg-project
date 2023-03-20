@@ -15,13 +15,13 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
         Debug.Log((m_PointerDownPos.x) + "Position pressed");
         
         
-        if (m_PointerDownPos.x > -938)
+        if (m_PointerDownPos.x > -849)
         {
             var startdelta = new Vector2(movementRange, 0.0f);
             ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
             SendValueToControl(startdelta);
         }
-        else if (m_PointerDownPos.x < -938)
+        else if (m_PointerDownPos.x < -849)
         {
             var startdelta = new Vector2(-movementRange, 0.0f);
             ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
