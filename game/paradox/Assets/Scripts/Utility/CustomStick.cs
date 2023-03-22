@@ -15,18 +15,16 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
         Debug.Log((m_PointerDownPos.x) + "Position pressed");
 
 
-        if (m_PointerDownPos.x > -644)
+        if (m_PointerDownPos.x > -721)
         {
             var startdelta = new Vector2(movementRange, 0.0f);
             ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
-            m_new_StartPos = m_StartPos + (Vector3)startdelta;
             SendValueToControl(startdelta);
         }
-        else if (m_PointerDownPos.x < -644)
+        else if (m_PointerDownPos.x < -721)
         {
             var startdelta = new Vector2(-movementRange, 0.0f);
             ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
-            m_new_StartPos = m_StartPos + (Vector3)startdelta;
             SendValueToControl(startdelta);
         }
 
@@ -36,15 +34,32 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
 
     public void OnDrag(PointerEventData eventData)
     {
+        /*
+        It was like this before I changed stuff
         RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponentInParent<RectTransform>(), eventData.position, eventData.pressEventCamera, out var position);
+
         var delta = position - m_PointerDownPos;
         delta.y = 0;
 
         delta = Vector2.ClampMagnitude(delta, movementRange);
-        ((RectTransform)transform).anchoredPosition = m_new_StartPos + (Vector3)delta;
+        ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)delta;
 
         var newPos = new Vector2(delta.x / movementRange, delta.y / movementRange);
         SendValueToControl(newPos);
+        */
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponentInParent<RectTransform>(), eventData.position, eventData.pressEventCamera, out m_PointerDownPos);
+        if (m_PointerDownPos.x > -721)
+        {
+            var startdelta = new Vector2(movementRange, 0.0f);
+            ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
+            SendValueToControl(startdelta);
+        }
+        else if (m_PointerDownPos.x < -721)
+        {
+            var startdelta = new Vector2(-movementRange, 0.0f);
+            ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
+            SendValueToControl(startdelta);
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -59,7 +74,7 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
     }
 
     private Vector3 m_StartPos;
-    private Vector3 m_new_StartPos;
+    
     private Vector2 m_PointerDownPos;
 
     [FormerlySerializedAs("movementRange")]
