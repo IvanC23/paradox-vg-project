@@ -80,11 +80,11 @@ public class LevelManager : MonoBehaviour
         {
             fromGallery = false;
             //OPEN STORYBOARD
-            PlayLevel(24);
+            PlayLevel(23);
         }
         else
         {
-            if (_levelsFinished == 23)
+            if (_levelsFinished == 22)
             {
                 PlayLevel(_levelsFinished);
                 return;
@@ -96,7 +96,7 @@ public class LevelManager : MonoBehaviour
     {
         if (_currentLevel + 1 == 23)
         {
-            PlayLevel(22);
+            PlayLevel(25);
             return;
         }
 
