@@ -94,9 +94,9 @@ public class LevelManager : MonoBehaviour
     }
     public void PlayNextLevel()
     {
-        if (_currentLevel + 1 == 24)
+        if (_currentLevel + 1 == 23)
         {
-            PlayLevel(33);
+            PlayLevel(22);
             return;
         }
 
@@ -263,10 +263,10 @@ public class LevelManager : MonoBehaviour
         if(fromGallery==true){
             PlayMainMenu();
         }else{
-            if(_currentLevel==24){
+            if(_currentLevel==23){
             PlayLevel(1);
-            }else if(_currentLevel==25){
-            PlayLevel(26);
+            }else if(_currentLevel==24){
+            PlayLevel(25);
             }
         }
         fromGallery=false;
@@ -277,7 +277,7 @@ public class LevelManager : MonoBehaviour
         fromGallery = true;
         if (!firstTimePlaying)
         {
-            PlayLevel(24);
+            PlayLevel(23);
         }
     }
     public void GoToStoryBoardOutro()
@@ -285,7 +285,7 @@ public class LevelManager : MonoBehaviour
         fromGallery = true;
         if (!firstTimePlaying)
         {
-            PlayLevel(25);
+            PlayLevel(24);
         }
     }
 
