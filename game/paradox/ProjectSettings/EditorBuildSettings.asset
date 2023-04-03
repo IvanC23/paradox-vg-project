@@ -75,11 +75,32 @@ EditorBuildSettings:
     path: Assets/Scenes/level25.unity
     guid: 4d97407d934592b4d85088f31769ab38
   - enabled: 1
+    path: Assets/Scenes/_SmartPhoneLevels/Don'tFall.unity
+    guid: 5dc2068c5838a4f43b37d41754b69035
+  - enabled: 1
+    path: Assets/Scenes/_SmartPhoneLevels/JumpingAround.unity
+    guid: 2594d93ccdd819e46a1c1891b6f10c67
+  - enabled: 1
+    path: Assets/Scenes/_SmartPhoneLevels/MoveMeFast.unity
+    guid: 03a5c6d408bad6544ae2defedea25fb4
+  - enabled: 1
+    path: Assets/Scenes/_SmartPhoneLevels/Sliding.unity
+    guid: a0993052ffd357240a6a6edea005f374
+  - enabled: 1
+    path: Assets/Scenes/_SmartPhoneLevels/PrecisionIsKey.unity
+    guid: 76776e727426f9a42afd512fb682f170
+  - enabled: 1
+    path: Assets/Scenes/_SmartPhoneLevels/PushPush.unity
+    guid: f233bb394e1f627429b305f194aea872
+  - enabled: 1
+    path: Assets/Scenes/_SmartPhoneLevels/WhereDidItGo.unity
+    guid: f71f584addba9c749a5e58d8e9abcdf4
+  - enabled: 1
+    path: Assets/Scenes/_SmartPhoneLevels/RollerCoaster.unity
+    guid: 36bb21e86832c474f9d3f7186c451e7f
+  - enabled: 1
     path: Assets/Scenes/StartingStoryboard.unity
     guid: 531b49332a9256749ae62db2442045d4
-  - enabled: 1
-    path: Assets/Scenes/EndingStoryboard.unity
-    guid: ccf45abe7dc3945d19dd40326178a571
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 91a64f4b1e25f3543964db16746274db

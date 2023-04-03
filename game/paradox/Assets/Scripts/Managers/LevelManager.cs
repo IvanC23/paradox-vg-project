@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
     private bool firstTimePlaying = true;
     private bool fromGallery = false;
     private int numOfLevels;
+    private int startingStoryboardIndex;
+    private int endingPanelIndex;
     //private Scene _nextScene;
 
 
@@ -37,7 +39,9 @@ public class LevelManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            numOfLevels = SceneManager.sceneCountInBuildSettings - 4;
+            numOfLevels = SceneManager.sceneCountInBuildSettings - 3;
+            startingStoryboardIndex = SceneManager.sceneCountInBuildSettings - 2;
+            endingPanelIndex = SceneManager.sceneCountInBuildSettings - 1;
             LoadData();
             DontDestroyOnLoad(gameObject);
         }
@@ -80,12 +84,13 @@ public class LevelManager : MonoBehaviour
         {
             fromGallery = false;
             //OPEN STORYBOARD
-            PlayLevel(23);
+            PlayLevel(startingStoryboardIndex);
         }
         else
         {
-            if (_levelsFinished == 22)
+            if (_levelsFinished == numOfLevels)
             {
+                
                 PlayLevel(_levelsFinished);
                 return;
             }
@@ -94,9 +99,9 @@ public class LevelManager : MonoBehaviour
     }
     public void PlayNextLevel()
     {
-        if (_currentLevel + 1 == 23)
+        if (_currentLevel + 1 > numOfLevels)
         {
-            PlayLevel(25);
+            PlayLevel(endingPanelIndex);
             return;
         }
 
@@ -260,16 +265,18 @@ public class LevelManager : MonoBehaviour
 
     public void EndedStoryboard()
     {
-        if(fromGallery==true){
+        if (fromGallery == true)
+        {
             PlayMainMenu();
-        }else{
-            if(_currentLevel==23){
-            PlayLevel(1);
-            }else if(_currentLevel==24){
-            PlayLevel(25);
+        }
+        else
+        {
+            if (_currentLevel == startingStoryboardIndex)
+            {
+                PlayLevel(1);
             }
         }
-        fromGallery=false;
+        fromGallery = false;
     }
 
     public void GoToStoryBoardIntro()
@@ -277,7 +284,7 @@ public class LevelManager : MonoBehaviour
         fromGallery = true;
         if (!firstTimePlaying)
         {
-            PlayLevel(23);
+            PlayLevel(startingStoryboardIndex);
         }
     }
     public void GoToStoryBoardOutro()
@@ -314,10 +321,11 @@ public class LevelManager : MonoBehaviour
         PlayFirstLevel();
     }
 
-    public bool GetFromGallery(){
+    public bool GetFromGallery()
+    {
         return fromGallery;
     }
-    
+
 }
 
 
