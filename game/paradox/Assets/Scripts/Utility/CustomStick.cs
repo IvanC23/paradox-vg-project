@@ -19,6 +19,17 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
         m_newPos.y = m_PointerDownPos.y - 70;
         ((RectTransform)transform).anchoredPosition = m_newPos;
 
+        if (m_PointerDownPos.x > 73.55)
+        {
+            var startdelta = new Vector2(movementRange, 0.0f);
+            SendValueToControl(startdelta);
+        }
+        else if (m_PointerDownPos.x < 73.55)
+        {
+            var startdelta = new Vector2(-movementRange, 0.0f);
+            SendValueToControl(startdelta);
+        }
+
         }
 
     }
