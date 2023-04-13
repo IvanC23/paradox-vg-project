@@ -10,55 +10,43 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
     public void OnPointerDown(PointerEventData eventData)
     {
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponentInParent<RectTransform>(), eventData.position, eventData.pressEventCamera, out m_PointerDownPos);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.GetComponent<RectTransform>(), eventData.position, eventData.pressEventCamera, out m_PointerDownPos);
 
+        if(m_PointerDownPos.x <510){
         Debug.Log((m_PointerDownPos.x) + "Position pressed");
 
+        m_newPos.x = m_PointerDownPos.x + 190;
+        m_newPos.y = m_PointerDownPos.y - 70;
+        ((RectTransform)transform).anchoredPosition = m_newPos;
 
-        if (m_PointerDownPos.x > -721)
-        {
-            var startdelta = new Vector2(movementRange, 0.0f);
-            ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
-            SendValueToControl(startdelta);
         }
-        else if (m_PointerDownPos.x < -721)
-        {
-            var startdelta = new Vector2(-movementRange, 0.0f);
-            ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
-            SendValueToControl(startdelta);
-        }
-
-
 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        /*
-        It was like this before I changed stuff
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponentInParent<RectTransform>(), eventData.position, eventData.pressEventCamera, out var position);
-
-        var delta = position - m_PointerDownPos;
-        delta.y = 0;
-
-        delta = Vector2.ClampMagnitude(delta, movementRange);
-        ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)delta;
-
-        var newPos = new Vector2(delta.x / movementRange, delta.y / movementRange);
-        SendValueToControl(newPos);
-        */
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponentInParent<RectTransform>(), eventData.position, eventData.pressEventCamera, out m_PointerDownPos);
-        if (m_PointerDownPos.x > -721)
+       
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponentInParent<RectTransform>(), eventData.position, eventData.pressEventCamera, out m_PointerDownPosDrag);
+        
+        if(firstDrag){
+            startingPointDrag = m_PointerDownPosDrag;
+            firstDrag = false;
+        }else{
+         Debug.Log((startingPointDrag.x) + "First position pressed");
+         Debug.Log((m_PointerDownPosDrag.x) + "Second position pressed");
+        if (m_PointerDownPosDrag.x + 1000 >= startingPointDrag.x + 1000)
         {
             var startdelta = new Vector2(movementRange, 0.0f);
-            ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
+            ((RectTransform)transform).anchoredPosition = m_newPos + (Vector3)startdelta;
             SendValueToControl(startdelta);
         }
-        else if (m_PointerDownPos.x < -721)
+        else if (m_PointerDownPosDrag.x + 1000 < startingPointDrag.x + 1000)
         {
             var startdelta = new Vector2(-movementRange, 0.0f);
-            ((RectTransform)transform).anchoredPosition = m_StartPos + (Vector3)startdelta;
+            ((RectTransform)transform).anchoredPosition = m_newPos + (Vector3)startdelta;
             SendValueToControl(startdelta);
+        }
+        
         }
     }
 
@@ -66,6 +54,7 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
     {
         ((RectTransform)transform).anchoredPosition = m_StartPos;
         SendValueToControl(Vector2.zero);
+        firstDrag = true;
     }
 
     private void Start()
@@ -74,8 +63,13 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
     }
 
     private Vector3 m_StartPos;
-    
+
+    private Vector3 m_newPos;
+
+    private Vector2 startingPointDrag;
+    private bool firstDrag = true;
     private Vector2 m_PointerDownPos;
+    private Vector2 m_PointerDownPosDrag;
 
     [FormerlySerializedAs("movementRange")]
     [SerializeField]
