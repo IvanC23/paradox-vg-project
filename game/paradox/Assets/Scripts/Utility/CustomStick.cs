@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 [AddComponentMenu("Input/On-Screen Button")]
 public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
+    
     public void OnPointerDown(PointerEventData eventData)
     {
 
@@ -19,6 +20,10 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
         m_newPos.y = m_PointerDownPos.y - 70;
         ((RectTransform)transform).anchoredPosition = m_newPos;
 
+        
+/*
+        DISABLED FOR THE MOVEMENT, WHEN YOU TOUCH YOU ALSO START TO MOVE
+
         if (m_PointerDownPos.x > 73.55)
         {
             var startdelta = new Vector2(movementRange, 0.0f);
@@ -30,6 +35,8 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
             SendValueToControl(startdelta);
         }
 
+        
+        */
         }
 
     }
@@ -72,7 +79,7 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
     {
         m_StartPos = ((RectTransform)transform).anchoredPosition;
     }
-
+   
     private Vector3 m_StartPos;
 
     private Vector3 m_newPos;
@@ -95,5 +102,7 @@ public class CustomStick : OnScreenControl, IPointerDownHandler, IPointerUpHandl
         get => m_ControlPath;
         set => m_ControlPath = value;
     }
+    
+    
 }
 
